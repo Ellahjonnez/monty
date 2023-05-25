@@ -20,14 +20,14 @@ void push(stack_t **stack, unsigned int line_num)
 
 	if (global.line_num == 1)
 	{
-		if (!add_node(stack, atoi(global.arg_line)))
+		if (!add_stack_node(stack, atoi(global.arg_line)))
 		{
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
-		if (!queue_node(stack, atoi(global.arg_line)))
+		if (!queue_stack_node(stack, atoi(global.arg_line)))
 		{
 			exit(EXIT_FAILURE);
 		}
