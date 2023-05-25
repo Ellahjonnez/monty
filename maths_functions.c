@@ -3,17 +3,17 @@
 /**
  * add_elements - adds the first two elements of the stack.
  * @stack: stack head
- * @num_sum: line_number
+ * @add_num: line_number
  * Return: no return
 */
-void add_elements(stack_t **stack, unsigned int num_sum)
+void add_elements(stack_t **stack, unsigned int add_num)
 {
 	int sum;
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", add_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -68,7 +68,7 @@ void sub_elements(stack_t **stack, unsigned int sub_num)
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", sub_res);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", sub_num);
 		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 	}
@@ -99,7 +99,7 @@ void mul_elements(stack_t **stack, unsigned int mul_num)
 	}
 
 	mul_res = (*stack)->n * (*stack)->next->n;
-	_pop(stack, mul_num);
+	pop(stack, mul_num);
 	(*stack)->n = mul_res;
 }
 
