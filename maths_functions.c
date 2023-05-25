@@ -1,6 +1,7 @@
 #include "monty.h"
+
 /**
- * add - adds the first two elements of the stack.
+ * add_elements - adds the first two elements of the stack.
  * @stack: stack head
  * @num_sum: line_number
  * Return: no return
@@ -17,7 +18,7 @@ void add_elements(stack_t **stack, unsigned int num_sum)
 	}
 
 	sum = ((*stack)->next->n) + ((*stack)->n);
-	pop(stack, add_num); 
+	pop(stack, add_num);
 	(*stack)->n = sum;
 }
 
@@ -36,13 +37,13 @@ void div_elements(stack_t **stack, unsigned int div_num)
 	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", div_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 	}
 	if (((*stack)->n) == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", div_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 
 		return;
@@ -68,7 +69,7 @@ void sub_elements(stack_t **stack, unsigned int sub_num)
 	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", sub_res);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -78,10 +79,11 @@ void sub_elements(stack_t **stack, unsigned int sub_num)
 }
 
 /**
- * mul_elements - multiplies the second top value of the stack with the top value
+ * mul_elements - multiplies the second top value of
+ * the stack with the top value
  * @stack: main stack
  * @mul_num: line number
- * 
+ *
  * Return: void
  */
 
@@ -92,7 +94,7 @@ void mul_elements(stack_t **stack, unsigned int mul_num)
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", mul_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -102,7 +104,7 @@ void mul_elements(stack_t **stack, unsigned int mul_num)
 }
 
 /**
- * mod - calculates the remainder of the division
+ * mod_elements - calculates the remainder of the division
  * @stack: main stack
  * @mod_num: number of lines
  *
@@ -116,14 +118,14 @@ void mod_elements(stack_t **stack, unsigned int mod_num)
 	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", mod_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 		return;
 	}
 	if (((*stack)->n) == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", mod_num);
-		free_stacks(*stack, global.file);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
 		return;
 	}
