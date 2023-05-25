@@ -44,7 +44,11 @@ typedef struct instruction_s
 /**
 * struct global_args - The current opcode argument
 * @data_struct: stack mode, stack (default) and queue
-* @argstring: the string arguments
+* @arg_line: the string arguments
+* @line_num: number of lines
+* @file: the file
+* @data_struct: the data structure
+* @stack: main stack
 *
 * Description: global structure used to pass data around the functions easily
 */
