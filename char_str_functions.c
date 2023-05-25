@@ -10,18 +10,20 @@
 
 void p_char(stack_t **stack, unsigned int line_num)
 {
-	if (!stack || !(*stack))
+	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
-		return;
 	}
-	if (isascii((*stack)->n) == 0)
+
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		free_all_stack(*stack, global.file);
 		exit(EXIT_FAILURE);
-		return;
 	}
+
 	printf("%c\n", (*stack)->n);
 }
 
@@ -44,7 +46,7 @@ void p_str(stack_t **stack, unsigned int line_num)
 		if (h->n <= 0 || h->n > 127)
 			break;
 		putchar((char) h->n);
-		current = h->next;
+		h = h->next;
 	}
 	putchar('\n');
 }
