@@ -35,11 +35,11 @@ void op_code(stack_t **stack, char *str, unsigned int line_num)
 		global.data_struct = 0;
 		return;
 	}
-	while (opcode[i].op_code)
+	while (op[i].opcode)
 	{
-		if (strcmp(opcode[i].op_code, str) == 0)
+		if (strcmp(op[i].opcode, str) == 0)
 		{
-			opcode[i].f(stack, line_num);
+			op[i].f(stack, line_num);
 			return; /* if there is a match, run the function */
 		}
 		i++;
