@@ -21,17 +21,18 @@ int main(int argc, char **argv)
 	char *string = NULL;
 	stack_t *stack = NULL;
 	unsigned int line_num = 1;
+	ssize_t line_len;
 
 	global.data_struct = 1;
 	if (argc != 2)
 		error_usg();
 
-	file = fopen(argv[1], "r");
+	global.file = fopen(argv[1], "r");
 
 	if (!file)
 		file_error(argv[1]);
 
-	while ((getline(&buffer, &buf_len, file)) != (-1))
+	while ((line_len = getline(&buffer, &buf_len, file)) != (-1))
 	{
 		if (status)
 			break;
@@ -40,14 +41,14 @@ int main(int argc, char **argv)
 			line_num++;
 			continue;
 		}
-		str = strtok(buffer, " \t\n");
-		if (!str || *str == '#')
+		string = strtok(buffer, " \t\n");
+		if (!string || *string == '#')
 		{
 			line_num++;
 			continue;
 		}
 		global.arg_line = strtok(NULL, " \t\n");
-		opcode(&stack, str, line_num);
+		op_code(&stack, string, line_num);
 		line_num++;
 	}
 	free(buffer);

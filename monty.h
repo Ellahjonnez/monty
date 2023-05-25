@@ -1,6 +1,8 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+#define  _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,8 +51,10 @@ typedef struct instruction_s
 typedef struct global_args
 {
 	int line_num;
+	int data_struct;
 	FILE *file;
 	char *arg_line;
+	stack_t *stack;
 } global_t;
 
 global_t global;
