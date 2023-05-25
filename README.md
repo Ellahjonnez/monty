@@ -17,7 +17,7 @@ To be able to explain to anyone, *without the help of Google* the following:
 ### Resource:
 * [How do I use extern to share variables between source files in C?](https://intranet.alxswe.com/rltoken/0KVWTdE8xXy__jUfBfakCw)
 * [Stacks and Queues in C](https://intranet.alxswe.com/rltoken/udmomL4F4mF630D2Z-ltqg)
-*[Stack operations](https://intranet.alxswe.com/projects/249#quiz-completed:~:text=Queues%20in%20C-,Stack%20operations,-Queue%20operations)
+* [Stack operations](https://intranet.alxswe.com/projects/249#quiz-completed:~:text=Queues%20in%20C-,Stack%20operations,-Queue%20operations)
 * [Queue operations](https://intranet.alxswe.com/rltoken/6Y_GVoIH_rV45xd7w0a9FA)
 
 ## Requirements
