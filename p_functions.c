@@ -10,7 +10,7 @@
 
 void push(stack_t **stack, unsigned int line_num)
 {
-	char *c = global.arg_line;
+		char *c = global.arg_line;
 
 	if ((is_digit(c)) == 0)
 	{
@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	if (global.line_num == 1)
+	if (global.data_struct == 1)
 	{
 		if (!add_stack_node(stack, atoi(global.arg_line)))
 		{
@@ -36,24 +36,24 @@ void push(stack_t **stack, unsigned int line_num)
 
 /**
  * pall - display all the elements in the stack from top to bottom
- * @head: stack head
+ * @stack: stack head
  * @line_num: Number of lines
  * Return: no return
 */
 
-void pall(stack_t **head, unsigned int line_num)
+void pall(stack_t **stack, unsigned int line_num)
 {
-	stack_t *h;
+
+	stack_t *new = *stack;
+
 	(void)line_num;
 
-	h = *head;
-	if (h == NULL)
-		return;
-	while (h)
+	while (new != NULL)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", new->n);
+		new = new->next;
 	}
+
 }
 
 /**
@@ -97,7 +97,7 @@ void pop(stack_t **stack, unsigned int line_num)
 	free(*stack);
 	*stack = temp;
 	if (!*stack)
-		return; /* prevents errors cause next line might assign a NULL */
+		return;
 	(*stack)->prev = NULL;
 }
 
