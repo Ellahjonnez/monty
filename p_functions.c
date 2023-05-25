@@ -57,7 +57,7 @@ void pall(stack_t **head, unsigned int line_num)
 }
 
 /**
- * pint -  prints the value of the element at the top of the stack 
+ * pint -  prints the value of the element at the top of the stack
  * @stack: stack given by main in start.c
  * @line_num: the line number
  *
@@ -104,7 +104,7 @@ void pop(stack_t **stack, unsigned int line_num)
 /**
  * swap -   exchanges the positions of the two elements at the top of the stack
  * @stack: the stack
- * @line_cnt: number of lines
+ * @line_num: number of lines
  *
  * Return: void
  */
