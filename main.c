@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		error_usg();
 
-	global.file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
+	global.file = file;
 
 	if (!file)
 		file_error(argv[1]);
