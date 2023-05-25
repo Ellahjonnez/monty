@@ -29,11 +29,11 @@ void p_char(stack_t **stack, unsigned int line_num)
  * p_str - prints the string starting at the top of the stack,
  * @stack: stack head
  * @line_num: Number of lines
- * 
+ *
  * Return: no return
 */
 
-void p_str(stack_t **stack, unsigned int line_num)	
+void p_str(stack_t **stack, unsigned int line_num)
 {
 	stack_t *h = *stack;
 
@@ -69,9 +69,9 @@ void rotl(stack_t **stack, unsigned int line_num)
 
 	while (right->next) /* moves the right pointer to the last node */
 		right = right->next;
-	right->next = left; 
+	right->next = left;
 	left->prev = right;
-	*stack = left->next; 
+	*stack = left->next;
 	(*stack)->prev->next = NULL;
 	(*stack)->prev = NULL;
 }
@@ -79,10 +79,11 @@ void rotl(stack_t **stack, unsigned int line_num)
 /**
 * rotr - to rotate the last node of a stack
 * @stack: points to the stack head
-* @line_count: line number
+* @line_num: line number
 *
 * Return: void
 */
+
 void rotr(stack_t **stack, unsigned int line_num)
 {
 	stack_t *last;
