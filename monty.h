@@ -50,7 +50,8 @@ typedef struct instruction_s
 * @data_struct: the data structure
 * @stack: main stack
 *
-* Description: global structure used to pass data around the functions easily
+* Description: the global structure used for passing the
+* data around the functions
 */
 typedef struct global_args
 {
